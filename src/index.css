@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #00f0ff;
+  --color-brand-secondary: #ff9f00;
+  --color-brand-dark: #090919;
+  --color-brand-bg-center: #101025;
+  --color-brand-card: rgba(255, 255, 255, 0.03);
+  --color-brand-light: #e6f1ff;
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: radial-gradient(circle at center, var(--color-brand-bg-center) 0%, var(--color-brand-dark) 100%);
+    color: var(--color-brand-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    @apply tracking-normal text-white mb-4;
+  }
+}
+
+@layer components {
+  .btn-premium {
+    @apply inline-block px-8 py-3 font-bold rounded-full transition-all duration-300 transform active:scale-95 text-black;
+    background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-secondary));
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+  }
+
+  .btn-premium:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+  }
+
+  .glass-card {
+    background: var(--color-brand-card);
+    backdrop-filter: blur(16px);
+    @apply rounded-xl p-8 border border-white/10 transition-all duration-500 shadow-2xl;
+  }
+
+  .glass-card:hover {
+    @apply -translate-y-2 border-brand-primary/40;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  }
+
+  .section-title {
+    @apply text-4xl md:text-[2.5rem] font-black text-center mb-12 relative pb-4 tracking-normal;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full;
+    background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-secondary));
+  }
+}
+
+/* Original Animations */
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes glowBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseShadow {
+  0% { box-shadow: 0 0 50px var(--color-brand-secondary), 0 0 100px var(--color-brand-primary); }
+  50% { box-shadow: 0 0 70px var(--color-brand-secondary), 0 0 140px var(--color-brand-primary); }
+  100% { box-shadow: 0 0 50px var(--color-brand-secondary), 0 0 100px var(--color-brand-primary); }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.profile-photo-container {
+  @apply relative w-[310px] h-[310px] rounded-full flex items-center justify-center p-1.5;
+  background: linear-gradient(45deg, var(--color-brand-primary), var(--color-brand-secondary), var(--color-brand-primary));
+  background-size: 400% 400%;
+  animation: glowBorder 3s ease infinite, pulseShadow 2.5s ease-in-out infinite;
+}
+
+.profile-photo {
+  @apply w-[300px] h-[300px] rounded-full object-cover border-[5px] border-brand-dark;
+}
+
+/* --- Reveal & Interactive Utilities --- */
+.brand-gradient-text {
+  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+  @apply bg-clip-text text-transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  @apply border-brand-primary/20 scale-105 transition-all duration-300;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s all cubic-bezier(0, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
