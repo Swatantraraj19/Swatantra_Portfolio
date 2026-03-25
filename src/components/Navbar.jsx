@@ -54,7 +54,7 @@ const Navbar = ({ activeSection }) => {
           ))}
           <li>
             <a 
-              href="https://drive.google.com/file/d/1rSedvf48tgd5gB3B62QBrmolIDv1E-x4/view?usp=sharing" 
+              href="https://drive.google.com/file/d/1eLo-Tu1xIcus-a-i2pWeQPg5tbkNKAkM/view?usp=sharing" 
               target="_blank" rel="noopener noreferrer"
               className="px-6 py-2 border border-brand-primary/50 text-brand-primary rounded-full text-sm font-bold hover:bg-brand-primary/10 transition-all"
             >
