@@ -16,6 +16,14 @@ const Navbar = ({ activeSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
+
   const navLinks = [
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
@@ -26,7 +34,7 @@ const Navbar = ({ activeSection }) => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 h-[70px] flex items-center ${isScrolled ? 'bg-brand-dark/40 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-8'}`}>
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 h-[70px] flex items-center ${isScrolled || isMenuOpen ? 'bg-brand-dark/95 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-8'}`}>
       {/* Scroll Progress Tube */}
       <div 
         className="absolute bottom-0 left-0 h-[2px] bg-brand-primary/80 transition-all duration-75 z-50" 
@@ -34,12 +42,12 @@ const Navbar = ({ activeSection }) => {
       ></div>
       <nav className={`max-w-[1240px] w-full mx-auto px-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'scale-95' : 'scale-100'}`}>
         {/* Mobile Menu Icon */}
-        <div className="md:hidden order-2 text-2xl cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <div className="md:hidden order-2 text-2xl cursor-pointer z-50" onClick={() => setIsMenuOpen(!isMenuOpen)}>
            <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
 
         {/* Global Nav Links */}
-        <ul className={`md:flex items-center ml-auto gap-8 ${isMenuOpen ? 'flex flex-col absolute top-full left-0 w-full bg-brand-card/95 backdrop-blur-3xl py-10 shadow-3xl text-center' : 'hidden'}`}>
+        <ul className={`md:flex items-center ml-auto gap-8 ${isMenuOpen ? 'flex flex-col fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] bg-brand-dark backdrop-blur-3xl py-10 shadow-3xl text-center overflow-y-auto' : 'hidden'}`}>
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
