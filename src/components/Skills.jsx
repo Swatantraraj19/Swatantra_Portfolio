@@ -1,11 +1,11 @@
 const Skills = () => {
     const skillList = [
-      { name: "Languages", icon: "fas fa-code", desc: "C, C++, Python" },
-      { name: "Web Development", icon: "fas fa-desktop", desc: "HTML, CSS, Tailwind CSS, JavaScript, React JS" },
-      { name: "AI & Generative AI", icon: "fas fa-robot", desc: "Prompt Engineering, Generative AI (GenAI) Fundamentals, LLM Basics" },
-      { name: "Concepts", icon: "fas fa-brain", desc: "OOPS, DSA, Computer Networks" },
-      { name: "Tools & Platforms", icon: "fas fa-tools", desc: "Git/GitHub, Firebase, API, VS Code, Snyk" },
-      { name: "Project Management", icon: "fas fa-tasks", desc: "Jira, Asana, Agile/Scrum, Sprint Planning" }
+      { name: "Languages", icon: "fas fa-code", desc: "C++, Python, JavaScript, TypeScript" },
+      { name: "Frontend Development", icon: "fas fa-desktop", desc: "HTML5, CSS3, Tailwind CSS, React JS, Framer Motion" },
+      { name: "Backend & Databases", icon: "fas fa-database", desc: "Firebase (Auth & Firestore), REST APIs" },
+      { name: "AI & Generative AI", icon: "fas fa-robot", desc: "Prompt Engineering, GenAI Fundamentals, LLM, RAG" },
+      { name: "Concepts", icon: "fas fa-brain", desc: "OOPS, System Design, DSA, Computer Networks" },
+      { name: "Tools & Management", icon: "fas fa-tools", desc: "Git/GitHub, VS Code, AI Tools (Antigravity, Claude,Codex), Jira, Asana, Agile/Scrum" }
     ];
   
     return (

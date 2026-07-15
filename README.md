@@ -2,6 +2,10 @@
 
 > A modern, responsive portfolio website showcasing my software development projects, technical skills, professional experience, and achievements.
 
+<p align="center">
+  <img src="src/assets/portfolio_preview.png" alt="Swatantra Portfolio Preview" width="100%" />
+</p>
+
 ![React](https://img.shields.io/badge/React-19-blue)
 ![Vite](https://img.shields.io/badge/Vite-Latest-purple)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)

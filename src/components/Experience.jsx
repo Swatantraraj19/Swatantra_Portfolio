@@ -9,15 +9,7 @@ const Experience = () => {
           "Collaborated with the team using Git and Jira for code management and sprint coordination."
         ]
       },
-      {
-        role: "Freelance Web Developer",
-        company: "Self-Employed | Feb 2026 - Present",
-        points: [
-          "Developed end-to-end web solutions for local clients, focusing on high-impact business needs.",
-          "Managed client relationships and translated complex requirements into scalable technical architectures.",
-          "Delivered optimized, responsive applications with a focus on quick time-to-market and clean code."
-        ]
-      },
+     
       {
         role: "Web Development Intern",
         company: "JetaTech InfoServices Pvt. Ltd. | Nov 2024 - Feb 2025",

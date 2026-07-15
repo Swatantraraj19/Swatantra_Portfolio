@@ -1,6 +1,14 @@
 const Projects = () => {
   const projectList = [
     {
+      title: "ArogyamPath :  AI-Assisted Healthcare Platform",
+      desc: "Helping patients understand symptoms, connect with the right specialists, book appointments seamlessly, while empowering doctors to manage their practice efficiently.",
+      tags: ["React 19","Tailwind CSS","Firebase","Gemini API","PWA"],
+      img: "arogyampath.png",
+      demo: "https://arogyampath.vercel.app/",
+      github: "https://github.com/Swatantraraj19/Arogyampath"
+    },
+    {
       title: "Food Junction Bikram – Digital Menu & Ordering PWA",
       desc: "Developed a high-performance PWA with 90+ Lighthouse scores. Featuring WhatsApp-integrated ordering, structured address validation, and SEO optimization using JSON-LD.",
       tags: ["React.js", "PWA", "Tailwind CSS", "WhatsApp API", "SEO"],
@@ -22,7 +30,7 @@ const Projects = () => {
       tags: ["Python", "Machine Learning", "Streamlit"],
       img: "/SOC.png",
       demo: "https://jalynatmucetgtplmgqf22.streamlit.app/",
-      github: "https://github.com/Swatantraraj19/Soil-Analysis-and-Prediction-Using-Machine-Learning-and-VNIR-Spectroscopy-Data"
+      github: "https://github.com/Swatantraraj19/SOC_Prediction_System_Using_ML_and_VNIR_Spectroscopy_Data"
     },
 
     {
