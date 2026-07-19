@@ -4,7 +4,7 @@ const Projects = () => {
       title: "ArogyamPath :  AI-Assisted Healthcare Platform",
       desc: "Helping patients understand symptoms, connect with the right specialists, book appointments seamlessly, while empowering doctors to manage their practice efficiently.",
       tags: ["React 19","Tailwind CSS","Firebase","Gemini API","PWA"],
-      img: "arogyampath.png",
+      img: "/arogyampath.png",
       demo: "https://arogyampath.vercel.app/",
       github: "https://github.com/Swatantraraj19/Arogyampath"
     },
