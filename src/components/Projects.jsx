@@ -2,7 +2,7 @@ const Projects = () => {
   const projectList = [
     {
       title: "ArogyamPath :  AI-Assisted Healthcare Platform",
-      desc: "Helping patients understand symptoms, connect with the right specialists, book appointments seamlessly, while empowering doctors to manage their practice efficiently.",
+      desc: "It is an AI-assisted patient-doctor healthcare platform that helps patients understand their symptoms, connect with the right specialist, and book appointments, while enabling doctors to efficiently manage appointments, availability, and their daily practice",
       tags: ["React 19","Tailwind CSS","Firebase","Gemini API","PWA"],
       img: "/arogyampath.png",
       demo: "https://arogyampath.vercel.app/",
@@ -10,7 +10,7 @@ const Projects = () => {
     },
     {
       title: "Food Junction Bikram – Digital Menu & Ordering PWA",
-      desc: "Developed a high-performance PWA with 90+ Lighthouse scores. Featuring WhatsApp-integrated ordering, structured address validation, and SEO optimization using JSON-LD.",
+      desc: "Developed a PWA-based digital menu & ordering system with WhatsApp integration for Food Junction Bikram. Built a responsive UI with Framer Motion animations and SEO optimization using JSON-LD. Achieved 90+ Lighthouse scores through performance optimization.",
       tags: ["React.js", "PWA", "Tailwind CSS", "WhatsApp API", "SEO"],
       img: "/FJ_project.png",
       demo: "https://foodjunctionbikram.in/",
@@ -18,7 +18,7 @@ const Projects = () => {
     },
     {
       title: "Hacker News Job Board",
-      desc: "Developed a React-based job board using the Hacker News API with authentication, protected routes, bookmarking, and optimized performance & security.",
+      desc: "Built a full-stack React app using the Hacker News API with Firebase Auth & Firestore. Implemented pagination, bookmarking, filtering, and protected routes. Improved performance by ~40% using Context API, modular architecture, and Snyk.",
       tags: ["React.js", "Tailwind CSS", "Snyk"],
       img: "/Hacker.png",
       demo: "https://job-board-alpha-lake.vercel.app/",
@@ -26,23 +26,23 @@ const Projects = () => {
     },
     {
       title: "Soil Organic Carbon Prediction System ",
-      desc: "Built SOC prediction models using VNIR spectroscopy (ElasticNet, SVR, Polynomial Regression) improving ~15% (R²), and developed a Streamlit web app with PCA-based reduction, spectral resampling, and real-time prediction with visualization.",
+      desc: "Built SOC prediction models using VNIR spectroscopy (ElasticNet, Support Vector Regression (SVR), Polynomial Regression) improving ~15% (R²), and developed a Streamlit web app with PCA-based reduction, spectral resampling, and real-time prediction with visualization.",
       tags: ["Python", "Machine Learning", "Streamlit"],
       img: "/SOC.png",
       demo: "https://jalynatmucetgtplmgqf22.streamlit.app/",
       github: "https://github.com/Swatantraraj19/SOC_Prediction_System_Using_ML_and_VNIR_Spectroscopy_Data"
     },
 
-    {
-      title: "Jeeyoride Website & Admin Panel",
-      desc: "Developed a responsive web interfaces, UI components and a functional admin dashboards that streamlined ride, user, and report management.. The design enhanced navigation efficiency by 25%.",
-      tags: ["HTML", "CSS", "JavaScript", "React.js"],
-      img: "/ride.jpg",
-      demo: "https://jeeyoride.com/services.php"
-    },
+    // {
+    //   title: "Jeeyoride Website & Admin Panel",
+    //   desc: "Developed a responsive web interfaces, UI components and a functional admin dashboards that streamlined ride, user, and report management.. The design enhanced navigation efficiency by 25%.",
+    //   tags: ["HTML", "CSS", "JavaScript", "React.js"],
+    //   img: "/ride.jpg",
+    //   demo: "https://jeeyoride.com/services.php"
+    // },
     {
       title: "Internship Projects",
-      desc: "Developed three key projects during my internship: a responsive registration form, a dynamic calculator, and a weather app with a focus on cross-platform compatibility.",
+      desc: "Developed three key projects during my internship: a responsive registration form, a dynamic calculator, and a weather app. Achieving 30% improvement in UI responsiveness and ensuring seamless cross-platform compatibility using HTML, CSS, and JavaScript.",
       tags: ["HTML", "CSS", "JavaScript"],
       img: "/internship.png",
       github: "https://github.com/Swatantraraj19/LGM-Registration-Form"
@@ -50,47 +50,78 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="max-w-7xl mx-auto px-8 lg:px-12 py-24 md:py-32">
+    <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-32">
       <h2 className="section-title">Projects</h2>
 
-      <div className="space-y-12 pt-8">
+      <div className="space-y-8 md:space-y-12 pt-4 md:pt-8">
         {projectList.map((project, index) => (
           <div
             key={index}
-            className="glass-card group overflow-hidden flex flex-col md:flex-row h-auto md:h-64 shadow-2xl hover:shadow-brand-primary/20 border-white/10 hover:border-brand-primary/50 transition-all duration-500"
+            className="group overflow-hidden rounded-2xl bg-brand-card backdrop-blur-xl border border-white/10 hover:border-brand-primary/50 transition-all duration-500 shadow-2xl flex flex-col md:flex-row hover:-translate-y-1 h-auto md:min-h-[290px]"
           >
-            <div className="h-48 md:h-full md:w-1/3 overflow-hidden relative border-b md:border-b-0 md:border-r border-white/10">
+            {/* Image Container - Strictly locked dimensions for symmetry without cropping */}
+            <div className="relative w-full md:w-5/12 lg:w-4/12 aspect-[16/9] md:aspect-auto min-h-[220px] md:min-h-full overflow-hidden shrink-0 border-b md:border-b-0 md:border-r border-white/10 bg-brand-dark/90 flex items-center justify-center p-2.5 sm:p-3">
+              {/* Ambient Blurred Background to fit empty space seamlessly */}
+              <img
+                src={project.img}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-35 scale-125 pointer-events-none"
+              />
+              {/* Main Uncropped Image */}
               <img
                 src={project.img}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="relative z-10 max-w-full max-h-full object-contain rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-brand-dark/40 group-hover:bg-transparent transition-all duration-500"></div>
             </div>
 
-            <div className="p-8 flex-1 flex flex-col justify-between text-left">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-black text-brand-primary">
+            {/* Content Container */}
+            <div className="p-5 sm:p-6 lg:p-7 flex-1 flex flex-col justify-between text-left space-y-4">
+              <div className="space-y-2.5">
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-primary group-hover:text-white transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-brand-light/80 text-[1rem] leading-relaxed">
+                <p className="text-brand-light/80 text-sm sm:text-base leading-relaxed line-clamp-3">
                   {project.desc}
                 </p>
               </div>
 
-              <div className="flex flex-col md:flex-row md:items-center justify-start gap-x-12 gap-y-6 pt-6 border-t border-white/5">
+              <div className="space-y-4 pt-3 md:pt-4 border-t border-white/10">
+                {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-[10px] font-black tracking-wider text-brand-primary border border-brand-primary/20 bg-brand-primary/5 px-2.5 py-1 rounded-full uppercase">{tag}</span>
+                    <span 
+                      key={tag} 
+                      className="text-[11px] font-semibold tracking-wide text-brand-primary bg-brand-primary/10 border border-brand-primary/20 px-3 py-0.5 rounded-full uppercase"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
 
-                <div className="flex gap-6 uppercase font-black text-xs tracking-widest">
+                {/* Action Links */}
+                <div className="flex flex-wrap items-center gap-3 pt-1">
                   {project.demo && (
-                    <a href={project.demo} target="_blank" className="text-brand-light hover:text-brand-primary hover:underline transition-all">Live Demo</a>
+                    <a 
+                      href={project.demo} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-primary/10 text-brand-primary border border-brand-primary/30 hover:bg-brand-primary hover:text-black font-bold text-xs sm:text-sm transition-all duration-300 shadow-md"
+                    >
+                      <i className="fas fa-external-link-alt text-xs"></i>
+                      <span>Live Demo</span>
+                    </a>
                   )}
                   {project.github && (
-                    <a href={project.github} target="_blank" className="text-brand-light hover:text-brand-primary hover:underline transition-all">Source Code</a>
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 text-brand-light border border-white/15 hover:border-brand-primary/50 hover:text-brand-primary font-bold text-xs sm:text-sm transition-all duration-300"
+                    >
+                      <i className="fab fa-github text-sm"></i>
+                      <span>Source Code</span>
+                    </a>
                   )}
                 </div>
               </div>

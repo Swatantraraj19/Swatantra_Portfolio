@@ -1,6 +1,6 @@
 const Hero = () => {
     return (
-      <section id="home" className="max-w-7xl mx-auto px-8 lg:px-12 py-24 md:py-40 flex flex-col md:flex-row items-center justify-between gap-12 overflow-visible">
+      <section id="home" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-20 md:py-40 flex flex-col md:flex-row items-center justify-between gap-12 overflow-visible">
         <div className="flex-1 flex justify-center animate-slide-left opacity-0 [animation-fill-mode:forwards]">
           <div className="profile-photo-container">
             <img 

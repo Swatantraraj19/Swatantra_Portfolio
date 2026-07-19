@@ -64,7 +64,7 @@ function App() {
       {/* Premium Back to Top */}
       <button 
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={`fixed bottom-10 right-10 w-14 h-14 glass glass-hover rounded-2xl flex items-center justify-center text-brand-primary transition-all duration-500 z-50 shadow-2xl group ${scrolled ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-50 pointer-events-none'}`}
+        className={`fixed bottom-6 right-6 sm:bottom-10 sm:right-10 w-11 h-11 sm:w-14 sm:h-14 glass glass-hover rounded-2xl flex items-center justify-center text-brand-primary transition-all duration-500 z-50 shadow-2xl group ${scrolled ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-50 pointer-events-none'}`}
         aria-label="Back to Top"
       >
         <i className="fas fa-arrow-up group-hover:-translate-y-1 transition-transform"></i>

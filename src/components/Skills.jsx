@@ -9,7 +9,7 @@ const Skills = () => {
     ];
   
     return (
-      <section id="skills" className="max-w-7xl mx-auto px-8 lg:px-12 py-24 md:py-32">
+      <section id="skills" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-32">
         <h2 className="section-title">Technical Skills</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
