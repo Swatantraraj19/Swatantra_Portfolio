@@ -14,11 +14,15 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+  }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
   }
 
   body {
@@ -30,7 +34,9 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-heading);
     @apply tracking-normal text-white mb-4;
   }
@@ -72,25 +78,55 @@
 
 /* Original Animations */
 @keyframes slideInLeft {
-  from { transform: translateX(-50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideInRight {
-  from { transform: translateX(50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes glowBorder {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes pulseShadow {
-  0% { box-shadow: 0 0 50px var(--color-brand-secondary), 0 0 100px var(--color-brand-primary); }
-  50% { box-shadow: 0 0 70px var(--color-brand-secondary), 0 0 140px var(--color-brand-primary); }
-  100% { box-shadow: 0 0 50px var(--color-brand-secondary), 0 0 100px var(--color-brand-primary); }
+  0% {
+    box-shadow: 0 0 35px var(--color-brand-secondary), 0 0 75px var(--color-brand-primary);
+  }
+
+  50% {
+    box-shadow: 0 0 50px var(--color-brand-secondary), 0 0 100px var(--color-brand-primary);
+  }
+
+  100% {
+    box-shadow: 0 0 35px var(--color-brand-secondary), 0 0 75px var(--color-brand-primary);
+  }
 }
 
 .animate-slide-left {
@@ -102,14 +138,14 @@
 }
 
 .profile-photo-container {
-  @apply relative w-[310px] h-[310px] rounded-full flex items-center justify-center p-1.5;
+  @apply relative w-[220px] h-[220px] md:w-[310px] md:h-[310px] rounded-full flex items-center justify-center p-1.5;
   background: linear-gradient(45deg, var(--color-brand-primary), var(--color-brand-secondary), var(--color-brand-primary));
   background-size: 400% 400%;
   animation: glowBorder 3s ease infinite, pulseShadow 2.5s ease-in-out infinite;
 }
 
 .profile-photo {
-  @apply w-[300px] h-[300px] rounded-full object-cover border-[5px] border-brand-dark;
+  @apply w-[210px] h-[210px] md:w-[300px] md:h-[300px] rounded-full object-cover border-[5px] border-brand-dark;
 }
 
 /* --- Reveal & Interactive Utilities --- */

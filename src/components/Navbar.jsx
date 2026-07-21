@@ -40,7 +40,7 @@ const Navbar = ({ activeSection }) => {
         className="absolute bottom-0 left-0 h-[2px] bg-brand-primary/80 transition-all duration-75 z-50" 
         style={{ width: `${scrollProgress}%` }}
       ></div>
-      <nav className={`max-w-[1240px] w-full mx-auto px-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'scale-95' : 'scale-100'}`}>
+      <nav className={`max-w-[1240px] w-full mx-auto px-4 sm:px-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'scale-95' : 'scale-100'}`}>
         {/* Mobile Menu Icon */}
         <div className="md:hidden order-2 text-2xl cursor-pointer z-50" onClick={() => setIsMenuOpen(!isMenuOpen)}>
            <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>

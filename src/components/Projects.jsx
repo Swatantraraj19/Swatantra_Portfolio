@@ -3,7 +3,7 @@ const Projects = () => {
     {
       title: "ArogyamPath :  AI-Assisted Healthcare Platform",
       desc: "It is an AI-assisted patient-doctor healthcare platform that helps patients understand their symptoms, connect with the right specialist, and book appointments, while enabling doctors to efficiently manage appointments, availability, and their daily practice",
-      tags: ["React 19","Tailwind CSS","Firebase","Gemini API","PWA"],
+      tags: ["React 19","Tailwind CSS","Firebase Auth","Firestore","Gemini API","Google Maps API","PWA"],
       img: "/arogyampath.png",
       demo: "https://arogyampath.vercel.app/",
       github: "https://github.com/Swatantraraj19/Arogyampath"
@@ -11,7 +11,7 @@ const Projects = () => {
     {
       title: "Food Junction Bikram – Digital Menu & Ordering PWA",
       desc: "Developed a PWA-based digital menu & ordering system with WhatsApp integration for Food Junction Bikram. Built a responsive UI with Framer Motion animations and SEO optimization using JSON-LD. Achieved 90+ Lighthouse scores through performance optimization.",
-      tags: ["React.js", "PWA", "Tailwind CSS", "WhatsApp API", "SEO"],
+      tags: ["React.js", "PWA", "Tailwind CSS", "WhatsApp API","Framer Motion", "SEO"],
       img: "/FJ_project.png",
       demo: "https://foodjunctionbikram.in/",
       github: "https://github.com/Swatantraraj19/Food_Junction_Bikram_Showcase.git"
@@ -19,7 +19,7 @@ const Projects = () => {
     {
       title: "Hacker News Job Board",
       desc: "Built a full-stack React app using the Hacker News API with Firebase Auth & Firestore. Implemented pagination, bookmarking, filtering, and protected routes. Improved performance by ~40% using Context API, modular architecture, and Snyk.",
-      tags: ["React.js", "Tailwind CSS", "Snyk"],
+      tags: ["React.js", "Tailwind CSS","Firebase Auth","React Router DOM", "Snyk"],
       img: "/Hacker.png",
       demo: "https://job-board-alpha-lake.vercel.app/",
       github: "https://github.com/Swatantraraj19/Job_Board"
@@ -27,7 +27,7 @@ const Projects = () => {
     {
       title: "Soil Organic Carbon Prediction System ",
       desc: "Built SOC prediction models using VNIR spectroscopy (ElasticNet, Support Vector Regression (SVR), Polynomial Regression) improving ~15% (R²), and developed a Streamlit web app with PCA-based reduction, spectral resampling, and real-time prediction with visualization.",
-      tags: ["Python", "Machine Learning", "Streamlit"],
+      tags: ["Python", "Machine Learning", "Streamlit","Scikit-learn"],
       img: "/SOC.png",
       demo: "https://jalynatmucetgtplmgqf22.streamlit.app/",
       github: "https://github.com/Swatantraraj19/SOC_Prediction_System_Using_ML_and_VNIR_Spectroscopy_Data"
@@ -81,7 +81,7 @@ const Projects = () => {
                 <h3 className="text-xl sm:text-2xl font-bold text-brand-primary group-hover:text-white transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-brand-light/80 text-sm sm:text-base leading-relaxed line-clamp-3">
+                <p className="text-brand-light/80 text-sm sm:text-base leading-relaxed line-clamp-4 md:line-clamp-3">
                   {project.desc}
                 </p>
               </div>

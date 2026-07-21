@@ -1,10 +1,10 @@
 const Skills = () => {
     const skillList = [
-      { name: "Languages", icon: "fas fa-code", desc: "C++, Python, JavaScript, TypeScript" },
-      { name: "Frontend Development", icon: "fas fa-desktop", desc: "HTML5, CSS3, Tailwind CSS, React JS, Framer Motion" },
-      { name: "Backend & Databases", icon: "fas fa-database", desc: "Firebase (Auth & Firestore), REST APIs" },
-      { name: "AI & Generative AI", icon: "fas fa-robot", desc: "Prompt Engineering, GenAI Fundamentals, LLM, RAG" },
-      { name: "Concepts", icon: "fas fa-brain", desc: "OOPS, System Design, DSA, Computer Networks" },
+      { name: "Programming Languages", icon: "fas fa-code", desc: "C++, JavaScript, Python, TypeScript" },
+      { name: "Frontend Development", icon: "fas fa-desktop", desc: "React JS, HTML5, CSS3, Tailwind CSS, Framer Motion" },
+      { name: "Backend & Databases", icon: "fas fa-database", desc: "Firebase Authentication, Firestore, REST APIs" },
+      { name: "AI & Generative AI", icon: "fas fa-robot", desc: "Prompt Engineering, Generative AI Fundamentals, LLMs, RAG" },
+      { name: "Computer Science Fundamentals", icon: "fas fa-brain", desc: "OOPS, System Design Fundamentals, DSA, Computer Networks" },
       { name: "Tools & Management", icon: "fas fa-tools", desc: "Git/GitHub, VS Code, AI Tools (Antigravity, Claude,Codex), Jira, Asana, Agile/Scrum" }
     ];
   
@@ -20,7 +20,7 @@ const Skills = () => {
             >
               <i className={`${skill.icon} text-[3rem] text-brand-primary mb-4`}></i>
               <h3 className="text-xl font-black text-white">{skill.name}</h3>
-              <p className="text-brand-light/80 text-lg">{skill.desc}</p>
+              <p className="text-brand-light/80 text-sm sm:text-base md:text-lg">{skill.desc}</p>
             </div>
           ))}
         </div>

@@ -13,6 +13,12 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // 0. Force scroll to top on fresh load
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // 1. Reveal on Scroll (Intersection Observer)
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -51,12 +57,12 @@ function App() {
       <Navbar activeSection={activeSection} />
       
       <main>
-        <div id="home" className="reveal"><Hero /></div>
-        <div id="about" className="reveal"><About /></div>
-        <div id="skills" className="reveal"><Skills /></div>
-        <div id="experience" className="reveal"><Experience /></div>
-        <div id="projects" className="reveal"><Projects /></div>
-        <div id="contact" className="reveal"><Contact /></div>
+        <div className="reveal"><Hero /></div>
+        <div className="reveal"><About /></div>
+        <div className="reveal"><Skills /></div>
+        <div className="reveal"><Experience /></div>
+        <div className="reveal"><Projects /></div>
+        <div className="reveal"><Contact /></div>
       </main>
 
       <Footer />
