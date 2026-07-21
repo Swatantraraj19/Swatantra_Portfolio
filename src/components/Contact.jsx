@@ -11,7 +11,7 @@ const Contact = () => {
           <div className="pt-2">
             <a 
               href="mailto:swatantrarajsingh1901@gmail.com" 
-              className="btn-premium px-10 py-4 text-base sm:text-lg font-bold tracking-wide transition-all duration-300 shadow-xl"
+              className="btn-premium px-4 py-2 text-base sm:text-lg font-bold tracking-wide transition-all duration-300 shadow-xl"
             >
               Contact Me
             </a>

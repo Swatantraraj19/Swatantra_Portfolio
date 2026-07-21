@@ -2,7 +2,7 @@ const Projects = () => {
   const projectList = [
     {
       title: "ArogyamPath :  AI-Assisted Healthcare Platform",
-      desc: "It is an AI-assisted patient-doctor healthcare platform that helps patients understand their symptoms, connect with the right specialist, and book appointments, while enabling doctors to efficiently manage appointments, availability, and their daily practice",
+      desc: "It is an AI-assisted patient-doctor healthcare platform that helps patients understand their symptoms, connect with the right specialist, and book appointments, while enabling doctors to efficiently manage appointments, availability, and their daily practice.",
       tags: ["React 19","Tailwind CSS","Firebase Auth","Firestore","Gemini API","Google Maps API","PWA"],
       img: "/arogyampath.png",
       demo: "https://arogyampath.vercel.app/",
@@ -76,23 +76,23 @@ const Projects = () => {
             </div>
 
             {/* Content Container */}
-            <div className="p-5 sm:p-6 lg:p-7 flex-1 flex flex-col justify-between text-left space-y-4">
-              <div className="space-y-2.5">
+            <div className="p-4 sm:p-6 lg:p-7 flex-1 flex flex-col justify-between text-left space-y-3.5 sm:space-y-4">
+              <div className="space-y-2">
                 <h3 className="text-xl sm:text-2xl font-bold text-brand-primary group-hover:text-white transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-brand-light/80 text-sm sm:text-base leading-relaxed line-clamp-4 md:line-clamp-3">
+                <p className="text-brand-light/80 text-sm sm:text-base leading-relaxed">
                   {project.desc}
                 </p>
               </div>
 
-              <div className="space-y-4 pt-3 md:pt-4 border-t border-white/10">
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2">
+              <div className="space-y-3 pt-2.5 md:pt-4 border-t border-white/10">
+                {/* Tech Tags - Compact layout */}
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {project.tags.map(tag => (
                     <span 
                       key={tag} 
-                      className="text-[11px] font-semibold tracking-wide text-brand-primary bg-brand-primary/10 border border-brand-primary/20 px-3 py-0.5 rounded-full uppercase"
+                      className="text-[10px] sm:text-[11px] font-semibold tracking-wide text-brand-primary bg-brand-primary/10 border border-brand-primary/20 px-2 sm:px-2.5 py-0.5 rounded-md uppercase"
                     >
                       {tag}
                     </span>
@@ -100,13 +100,13 @@ const Projects = () => {
                 </div>
 
                 {/* Action Links */}
-                <div className="flex flex-wrap items-center gap-3 pt-1">
+                <div className="flex flex-wrap items-center gap-2.5 pt-0.5">
                   {project.demo && (
                     <a 
                       href={project.demo} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-primary/10 text-brand-primary border border-brand-primary/30 hover:bg-brand-primary hover:text-black font-bold text-xs sm:text-sm transition-all duration-300 shadow-md"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-brand-primary/10 text-brand-primary border border-brand-primary/30 hover:bg-brand-primary hover:text-black font-bold text-xs sm:text-sm transition-all duration-300 shadow-md"
                     >
                       <i className="fas fa-external-link-alt text-xs"></i>
                       <span>Live Demo</span>
@@ -117,9 +117,9 @@ const Projects = () => {
                       href={project.github} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 text-brand-light border border-white/15 hover:border-brand-primary/50 hover:text-brand-primary font-bold text-xs sm:text-sm transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-white/5 text-brand-light border border-white/15 hover:border-brand-primary/50 hover:text-brand-primary font-bold text-xs sm:text-sm transition-all duration-300"
                     >
-                      <i className="fab fa-github text-sm"></i>
+                      <i className="fab fa-github text-xs sm:text-sm"></i>
                       <span>Source Code</span>
                     </a>
                   )}
