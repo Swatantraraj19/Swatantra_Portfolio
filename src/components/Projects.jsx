@@ -2,7 +2,7 @@ const Projects = () => {
   const projectList = [
     {
       title: "ArogyamPath :  AI-Assisted Healthcare Platform",
-      desc: "It is an AI-assisted patient-doctor healthcare platform that helps patients understand their symptoms, connect with the right specialist, and book appointments, while enabling doctors to efficiently manage appointments, availability, and their daily practice.",
+      desc: "Developed and deployed an AI-assisted patient-doctor healthcare platform that helps patients understand their symptoms, connect with the right specialist, and book appointments, while enabling doctors to efficiently manage appointments, availability, and their daily practice.",
       tags: ["React 19","Tailwind CSS","Firebase Auth","Firestore","Gemini API","Google Maps API","PWA"],
       img: "/arogyampath.png",
       demo: "https://arogyampath.vercel.app/",
