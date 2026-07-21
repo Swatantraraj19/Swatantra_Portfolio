@@ -130,7 +130,7 @@ This portfolio was built to:
 
 📧 Email: *swatantrarajsingh1901@gmail.com*
 
-💼 LinkedIn: *https://linkedin.com/in/swatantra-raj-kumar-singh-39b3a020a*
+💼 LinkedIn: *https://www.linkedin.com/in/swatantraraj19/*
 
 🌐 Portfolio: **https://swatantra-portfolio-eight.vercel.app/**
 
