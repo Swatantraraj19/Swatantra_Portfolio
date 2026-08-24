@@ -33,7 +33,7 @@ function App() {
     // 2. Active Section & Scrolled state
     const handleScroll = () => {
       setScrolled(window.scrollY > 100);
-      
+
       const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -45,7 +45,7 @@ function App() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       revealObserver.disconnect();
@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="bg-brand-dark text-brand-light min-h-screen selection:bg-brand-primary/30 selection:text-brand-primary">
       <Navbar activeSection={activeSection} />
-      
+
       <main>
         <div className="reveal"><Hero /></div>
         <div className="reveal"><About /></div>
@@ -66,9 +66,9 @@ function App() {
       </main>
 
       <Footer />
-      
+
       {/* Premium Back to Top */}
-      <button 
+      <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className={`fixed bottom-6 right-6 sm:bottom-10 sm:right-10 w-11 h-11 sm:w-14 sm:h-14 glass glass-hover rounded-2xl flex items-center justify-center text-brand-primary transition-all duration-500 z-50 shadow-2xl group ${scrolled ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-50 pointer-events-none'}`}
         aria-label="Back to Top"

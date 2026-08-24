@@ -36,14 +36,14 @@ const Navbar = ({ activeSection }) => {
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 h-[70px] flex items-center ${isScrolled || isMenuOpen ? 'bg-brand-dark/95 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-8'}`}>
       {/* Scroll Progress Tube */}
-      <div 
-        className="absolute bottom-0 left-0 h-[2px] bg-brand-primary/80 transition-all duration-75 z-50" 
+      <div
+        className="absolute bottom-0 left-0 h-[2px] bg-brand-primary/80 transition-all duration-75 z-50"
         style={{ width: `${scrollProgress}%` }}
       ></div>
       <nav className={`max-w-[1240px] w-full mx-auto px-4 sm:px-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'scale-95' : 'scale-100'}`}>
         {/* Mobile Menu Icon */}
         <div className="md:hidden order-2 text-2xl cursor-pointer z-50" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-           <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+          <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
 
         {/* Global Nav Links */}
@@ -61,8 +61,8 @@ const Navbar = ({ activeSection }) => {
             </li>
           ))}
           <li>
-            <a 
-              href="https://drive.google.com/file/d/1vBYAmDgsuinlLaobjZmMkasDBuv8bJR1/view?usp=sharing" 
+            <a
+              href="https://drive.google.com/file/d/1272eqeIHiYgvucmMqpfHSaHFNp-uUnDG/view?usp=sharing"
               target="_blank" rel="noopener noreferrer"
               className="px-6 py-2 border border-brand-primary/50 text-brand-primary rounded-full text-sm font-bold hover:bg-brand-primary/10 transition-all"
             >
