@@ -3,7 +3,7 @@ const Skills = () => {
       { name: "Programming Languages", icon: "fas fa-code", desc: "C++, JavaScript, Python, TypeScript" },
       { name: "Frontend Development", icon: "fas fa-desktop", desc: "React JS, HTML5, CSS3, Tailwind CSS, Framer Motion" },
       { name: "Backend & Databases", icon: "fas fa-database", desc: "Firebase Authentication, Firestore, REST APIs" },
-      { name: "AI & Generative AI", icon: "fas fa-robot", desc: "Prompt Engineering, Generative AI Fundamentals, LLMs, RAG" },
+      { name: "AI & Generative AI", icon: "fas fa-robot", desc: "Prompt Engineering, Generative AI Fundamentals, LLMs, RAG, AI Agents, MCP, Langchain" },
       { name: "Computer Science Fundamentals", icon: "fas fa-brain", desc: "OOPS, System Design Fundamentals, DSA, Computer Networks" },
       { name: "Tools & Management", icon: "fas fa-tools", desc: "Git/GitHub, VS Code, AI Tools (Antigravity, Claude,Codex), Jira, Asana, Agile/Scrum" }
     ];
