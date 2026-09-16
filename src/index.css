@@ -3,12 +3,15 @@
 @theme {
   --color-brand-primary: #00f0ff;
   --color-brand-secondary: #ff9f00;
-  --color-brand-dark: #090919;
-  --color-brand-bg-center: #101025;
-  --color-brand-card: rgba(255, 255, 255, 0.03);
-  --color-brand-light: #e6f1ff;
+  --color-brand-accent: #6366f1;
+  --color-brand-emerald: #10b981;
+  --color-brand-dark: #04060f;
+  --color-brand-card: rgba(13, 17, 28, 0.7);
+  --color-brand-card-hover: rgba(22, 28, 45, 0.85);
+  --color-brand-light: #f1f5f9;
+  --color-brand-muted: #94a3b8;
 
-  --font-heading: 'Poppins', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'Fira Code', monospace;
 }
@@ -16,7 +19,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 70px;
+    scroll-padding-top: 100px;
   }
 
   * {
@@ -27,151 +30,348 @@
 
   body {
     font-family: var(--font-body);
-    background: radial-gradient(circle at center, var(--color-brand-bg-center) 0%, var(--color-brand-dark) 100%);
+    background-color: var(--color-brand-dark);
     color: var(--color-brand-light);
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  h1,
-  h2,
-  h3 {
+  h1, h2, h3, h4 {
     font-family: var(--font-heading);
-    @apply tracking-normal text-white mb-4;
+    letter-spacing: -0.025em;
   }
 }
 
 @layer components {
-  .btn-premium {
-    @apply inline-block px-8 py-3 font-bold rounded-full transition-all duration-300 transform active:scale-95 text-black;
-    background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-secondary));
-    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+  /* Linear-Style Shimmer Button */
+  .btn-shimmer {
+    @apply relative inline-flex items-center justify-center font-bold rounded-full overflow-hidden transition-all duration-300 transform active:scale-95;
+    background: linear-gradient(135deg, #00f0ff 0%, #38bdf8 50%, #818cf8 100%);
+    color: #030712;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.6);
   }
 
-  .btn-premium:hover {
-    @apply -translate-y-1;
-    box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+  .btn-shimmer:hover {
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    @apply -translate-y-0.5 scale-[1.02];
   }
 
-  .glass-card {
+  /* Glass Outline Button */
+  .btn-glass {
+    @apply inline-flex items-center justify-center font-bold rounded-full transition-all duration-300 border border-white/15 bg-white/[0.03] text-white hover:bg-white/[0.08] hover:border-brand-primary/50 hover:text-brand-primary backdrop-blur-xl active:scale-95;
+  }
+
+  /* SaaS Bento & Showcase Glass Card */
+  .bento-card {
     background: var(--color-brand-card);
-    backdrop-filter: blur(16px);
-    @apply rounded-2xl p-5 sm:p-6 md:p-8 border border-white/10 transition-all duration-500 shadow-2xl;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    @apply rounded-3xl transition-all duration-500 relative overflow-hidden;
   }
 
-  .glass-card:hover {
-    @apply -translate-y-2 border-brand-primary/40;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  .bento-card:hover {
+    background: var(--color-brand-card-hover);
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 25px 50px -12px rgba(0, 240, 255, 0.15);
+    @apply -translate-y-1.5;
   }
 
+  /* Section Title with Metallic Subtlety */
   .section-title {
-    @apply text-3xl sm:text-4xl md:text-[2.5rem] font-black text-center mb-8 md:mb-12 relative pb-4 tracking-normal;
+    @apply text-2xl sm:text-4xl md:text-5xl font-black text-center mb-2.5 sm:mb-4 tracking-tight px-4;
+    background: linear-gradient(180deg, #FFFFFF 20%, #94A3B8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .section-title::after {
+  .section-subtitle {
+    @apply text-xs sm:text-base text-brand-muted text-center max-w-xl mx-auto mb-8 sm:mb-14 font-medium px-4 leading-relaxed;
+  }
+
+  /* Interactive Mouse-Reactive Spotlight Card */
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spotlight-card::before {
     content: '';
-    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full;
-    background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-secondary));
-  }
-}
-
-/* Original Animations */
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-50px);
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      500px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+      rgba(0, 240, 255, 0.12),
+      rgba(99, 102, 241, 0.05) 40%,
+      transparent 70%
+    );
     opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
   }
 
-  to {
-    transform: translateX(0);
+  .spotlight-card:hover::before {
     opacity: 1;
   }
+
+  /* Traveling Border Beam Animation */
+  .border-beam {
+    position: relative;
+  }
+
+  .border-beam::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(90deg, transparent 15%, #00f0ff 45%, #6366f1 75%, transparent 95%);
+    background-size: 250% 250%;
+    animation: beamSweep 4s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.95;
+    z-index: 3;
+  }
+
+  @keyframes beamSweep {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* SaaS Browser Frame Simulation */
+  .browser-frame {
+    background: #080b18;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+  }
+
+  .browser-header {
+    background: rgba(13, 17, 28, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Code Terminal Block */
+  .code-terminal {
+    background: #060813;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    font-family: var(--font-mono);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06), 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+  }
 }
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(50px);
+/* Background Grid Pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Live Radar Dot */
+.radar-beacon {
+  @apply relative flex h-2.5 w-2.5;
+}
+
+.radar-beacon::before {
+  content: '';
+  @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75;
+}
+
+.radar-beacon::after {
+  content: '';
+  @apply relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500;
+}
+
+/* Metallic Silver Gradient Text */
+.metallic-text {
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 60%, #64748b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Electric Conic Glowing Frame */
+.conic-glow-container {
+  @apply relative rounded-3xl p-[2px] overflow-hidden;
+  background: linear-gradient(60deg, #00f0ff, #38bdf8, #6366f1, #f59e0b, #00f0ff);
+  background-size: 300% 300%;
+  animation: conicSpin 5s ease infinite;
+}
+
+@keyframes conicSpin {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Specular Glass Glint Sweep Animation across the Photo */
+@keyframes glintSweep {
+  0% { transform: translateX(-150%) skewX(-25deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  22% { transform: translateX(250%) skewX(-25deg); opacity: 0; }
+  100% { transform: translateX(250%) skewX(-25deg); opacity: 0; }
+}
+
+.photo-glint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 45%, rgba(0, 240, 255, 0.55) 50%, rgba(255, 255, 255, 0.35) 55%, transparent 100%);
+  animation: glintSweep 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Pulsing Avatar Aura Halo */
+@keyframes avatarHaloPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0.85; filter: blur(32px); }
+}
+
+.animate-halo {
+  animation: avatarHaloPulse 3.8s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(0.8deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(7px) rotate(-0.8deg); }
+}
+
+.animate-float {
+  animation: floatSlow 4.5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatReverse 5.5s ease-in-out infinite;
+}
+
+/* Blinking Cursor for Typing Animation */
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blinkCursor 1s step-start infinite;
+}
+
+/* Atmospheric Aurora Breathing */
+@keyframes auroraPulse {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.12; }
+  50% { transform: scale(1.15) translate(-20px, 15px); opacity: 0.22; }
+}
+
+.animate-aurora {
+  animation: auroraPulse 10s ease-in-out infinite;
+}
+
+/* Orchestrated Staggered Entrance (Linear & Raycast Style Blur-Up Cascade) */
+@keyframes cascadeBlurUp {
+  0% {
     opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
   }
-
-  to {
-    transform: translateX(0);
+  100% {
     opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
   }
 }
 
-@keyframes glowBorder {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+.stagger-1 {
+  animation: cascadeBlurUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
+}
+.stagger-2 {
+  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s backwards;
+}
+.stagger-3 {
+  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s backwards;
+}
+.stagger-4 {
+  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.48s backwards;
+}
+.stagger-5 {
+  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.62s backwards;
+}
+.stagger-6 {
+  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s backwards;
+}
+.stagger-card {
+  animation: cascadeBlurUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
 }
 
-@keyframes pulseShadow {
-  0% {
-    box-shadow: 0 0 35px var(--color-brand-secondary), 0 0 75px var(--color-brand-primary);
-  }
-
-  50% {
-    box-shadow: 0 0 50px var(--color-brand-secondary), 0 0 100px var(--color-brand-primary);
-  }
-
-  100% {
-    box-shadow: 0 0 35px var(--color-brand-secondary), 0 0 75px var(--color-brand-primary);
-  }
+/* Autonomous Beam Shimmer for Mobile Progress Bars */
+@keyframes beamShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
 }
 
-.animate-slide-left {
-  animation: slideInLeft 0.8s ease-out forwards;
+.animate-beam {
+  animation: beamShimmer 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.animate-slide-right {
-  animation: slideInRight 0.8s ease-out forwards;
+/* Continuous Horizontal Tech Marquee */
+@keyframes marqueeHorizontal {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
-.profile-photo-container {
-  @apply relative w-[220px] h-[220px] md:w-[310px] md:h-[310px] rounded-full flex items-center justify-center p-1.5;
-  background: linear-gradient(45deg, var(--color-brand-primary), var(--color-brand-secondary), var(--color-brand-primary));
-  background-size: 400% 400%;
-  animation: glowBorder 3s ease infinite, pulseShadow 2.5s ease-in-out infinite;
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeHorizontal 30s linear infinite;
 }
 
-.profile-photo {
-  @apply w-[210px] h-[210px] md:w-[300px] md:h-[300px] rounded-full object-cover border-[5px] border-brand-dark;
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
-/* --- Reveal & Interactive Utilities --- */
-.brand-gradient-text {
-  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
-  @apply bg-clip-text text-transparent;
-}
-
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.glass-hover:hover {
-  background: rgba(255, 255, 255, 0.06);
-  @apply border-brand-primary/20 scale-105 transition-all duration-300;
-}
-
+/* Scroll Reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: 0.8s all cubic-bezier(0, 0, 0.2, 1);
+  transform: translateY(24px);
+  transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1) all;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #04060f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.4);
+}
