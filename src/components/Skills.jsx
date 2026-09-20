@@ -98,7 +98,7 @@ const Skills = () => {
     : SKILL_CATEGORIES.filter(cat => cat.id === activeFilter);
 
   return (
-    <section id="skills" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-28">
+    <section id="skills" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-28 overflow-hidden">
       <h2 className="section-title">Technical Skills</h2>
       <p className="section-subtitle">
         Curated stack of languages, frameworks, AI tools, and core computer science fundamentals.

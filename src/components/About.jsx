@@ -18,7 +18,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-28"
+      className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-28 overflow-hidden"
     >
       <h2 className="section-title">About Me</h2>
       <p className="section-subtitle">

@@ -82,7 +82,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[#04060f] text-brand-light min-h-screen selection:bg-brand-primary/20 selection:text-brand-primary relative font-body antialiased">
+    <div className="bg-[#04060f] text-brand-light min-h-screen selection:bg-brand-primary/20 selection:text-brand-primary relative font-body antialiased overflow-x-hidden w-full max-w-full">
       {/* Background Decor - Linear-style Ambient Grid & Atmospheric Orbs */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         {/* Subtle 32px Grid with Radial Mask */}

@@ -100,30 +100,34 @@ const Projects = () => {
     : PROJECT_LIST.filter(project => project.type === activeTab);
 
   return (
-    <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-28">
+    <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-28 overflow-hidden">
       <h2 className="section-title">Projects</h2>
       <p className="section-subtitle">
         Production software, full-stack applications, and real-world engineering solutions.
       </p>
 
-      {/* Top Production Stats Strip */}
-      <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-6 sm:mb-8 text-xs font-mono">
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-brand-light shadow-sm">
+      {/* Top Production Stats Strip - Single line on mobile */}
+      <div className="flex items-center justify-center gap-2 sm:gap-3 mb-5 sm:mb-8 text-[10px] sm:text-xs font-mono max-w-full px-1">
+        <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-brand-light shadow-sm shrink-0">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse"></span>
-          <span className="font-semibold text-white">{PROJECT_LIST.length} Production Projects</span>
+          <span className="font-semibold text-white">
+            {PROJECT_LIST.length} <span className="hidden sm:inline">Production </span>Projects
+          </span>
         </div>
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-brand-light shadow-sm">
+        <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-brand-light shadow-sm shrink-0">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span className="font-semibold text-emerald-400">100% Live Deployments</span>
+          <span className="font-semibold text-emerald-400">
+            100% Live<span className="hidden sm:inline"> Deployments</span>
+          </span>
         </div>
-        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-brand-light shadow-sm">
+        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-brand-light shadow-sm shrink-0">
           <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
           <span className="font-semibold text-purple-300">GenAI &amp; Web Architecture</span>
         </div>
       </div>
 
       {/* Interactive Project Type Filter Tabs (All / Personal / Freelance) */}
-      <div className="flex items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+      <div className="flex items-center justify-center gap-1.5 sm:gap-3 mb-8 sm:mb-12 max-w-full px-1">
         {PROJECT_TABS.map((tab) => {
           const isActive = activeTab === tab.id;
           const count = tab.id === "all"
@@ -135,15 +139,23 @@ const Projects = () => {
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab.id)}
-              className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 flex items-center gap-2 cursor-pointer active:scale-95 border ${
+              className={`px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all duration-300 flex items-center gap-1.5 sm:gap-2 cursor-pointer active:scale-95 border ${
                 isActive
                   ? "bg-white/15 text-white border-white/20 shadow-[0_0_15px_rgba(0,240,255,0.2)]"
                   : "bg-white/[0.03] text-brand-muted hover:text-white hover:bg-white/[0.08] border-white/10"
               }`}
             >
-              <span>{tab.label}</span>
+              <span>
+                {tab.id === 'all' ? (
+                  'All'
+                ) : tab.id === 'personal' ? (
+                  <>Personal <span className="hidden sm:inline">Projects</span></>
+                ) : (
+                  <>Freelance <span className="hidden sm:inline">Projects</span></>
+                )}
+              </span>
               <span
-                className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full font-bold transition-colors ${
+                className={`text-[9.5px] sm:text-[10px] font-mono px-1.5 py-0.2 rounded-full font-bold transition-colors ${
                   isActive
                     ? "bg-brand-primary/20 text-brand-primary"
                     : "bg-white/10 text-brand-muted"

@@ -84,7 +84,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-[calc(100vh-2rem)] max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-20 pb-8 sm:pt-24 sm:pb-14 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 sm:gap-8 lg:gap-12"
+      className="min-h-[calc(100vh-2rem)] max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-20 pb-8 sm:pt-24 sm:pb-14 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 sm:gap-8 lg:gap-12 overflow-hidden"
     >
       {/* Profile Image & Interactive Terminal Enclosure */}
       <div className="flex-1 flex flex-col items-center order-1 md:order-2 shrink-0 stagger-1">

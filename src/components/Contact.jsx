@@ -11,7 +11,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="max-w-4xl mx-auto px-4 sm:px-8 py-16 md:py-28 text-center">
+    <section id="contact" className="max-w-4xl mx-auto px-4 sm:px-8 py-16 md:py-28 text-center overflow-hidden">
       <div className="relative">
         {/* Subtle Radial Gradient Mesh Atmosphere */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/10 via-brand-accent/15 to-brand-secondary/10 blur-3xl -z-10 rounded-full"></div>

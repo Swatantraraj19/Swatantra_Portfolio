@@ -43,7 +43,7 @@ const EXPERIENCES = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="max-w-5xl mx-auto px-4 sm:px-8 py-16 md:py-28">
+    <section id="experience" className="max-w-5xl mx-auto px-4 sm:px-8 py-16 md:py-28 overflow-hidden">
       <h2 className="section-title">Work Experience</h2>
       <p className="section-subtitle">
         Engineering career progression, production systems built, and corporate impact.
