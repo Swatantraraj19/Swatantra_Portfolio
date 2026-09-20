@@ -54,7 +54,7 @@ const Hero = () => {
 
       setMetrics({
         years: (1.7 * ease).toFixed(1),
-        apps: Math.round(5 * ease),
+        apps: Math.round(7 * ease),
         quality: Math.round(100 * ease)
       });
 
@@ -87,7 +87,7 @@ const Hero = () => {
       className="min-h-[calc(100vh-2rem)] max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-20 pb-8 sm:pt-24 sm:pb-14 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 sm:gap-8 lg:gap-12"
     >
       {/* Profile Image & Interactive Terminal Enclosure */}
-      <div className="flex-1 flex flex-col items-center order-1 md:order-2 shrink-0 stagger-card">
+      <div className="flex-1 flex flex-col items-center order-1 md:order-2 shrink-0 stagger-1">
         {/* Interactive Mode Pill Switcher */}
         <div className="flex items-center justify-center gap-1 p-1 mb-3 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl shadow-lg">
           <button
@@ -175,11 +175,11 @@ const Hero = () => {
           </div>
 
           {/* Bottom-Left Floating Micro-Badge (Counter Float Down) */}
-          <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 bento-card px-2.5 py-1 sm:px-3 sm:py-1.5 flex items-center gap-2 sm:gap-2.5 shadow-2xl border-white/20 z-20 animate-float-delayed backdrop-blur-xl">
-            <span className="text-base sm:text-lg">🚀</span>
+          <div className="absolute -bottom-1 -left-1 sm:-bottom-3 sm:-left-3 bento-card px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2.5 shadow-2xl border-white/20 z-20 animate-float-delayed backdrop-blur-xl">
+            <span className="text-xs sm:text-lg">🚀</span>
             <div>
-              <div className="text-[10px] sm:text-[11px] font-bold text-white leading-tight">Full-Stack &amp; AI</div>
-              <div className="text-[8px] sm:text-[9px] text-brand-muted">React • JavaScript • GenAI</div>
+              <div className="text-[9px] sm:text-[11px] font-bold text-white leading-tight">Full-Stack &amp; AI</div>
+              <div className="text-[7.5px] sm:text-[9px] text-brand-muted leading-tight">React • JavaScript • GenAI</div>
             </div>
           </div>
         </div>
@@ -187,8 +187,8 @@ const Hero = () => {
 
       {/* Copywriting & Conversion Elements */}
       <div className="flex-1 space-y-3.5 sm:space-y-5 text-center md:text-left order-2 md:order-1">
-        {/* Status Radar Badge: Live pulsing beacon */}
-        <div className="stagger-1 inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[11px] sm:text-xs font-semibold backdrop-blur-xl shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-transform duration-300 hover:scale-105">
+        {/* Status Radar Badge: Hidden on mobile to keep hero clean & non-redundant */}
+        <div className="stagger-1 hidden sm:inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[11px] sm:text-xs font-semibold backdrop-blur-xl shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-transform duration-300 hover:scale-105">
           <span className="radar-beacon"></span>
           <span className="hidden sm:inline">Available for Full-Time Roles &amp; High-Impact Projects</span>
           <span className="inline sm:hidden">Available for Roles &amp; High-Impact Projects</span>
@@ -271,7 +271,7 @@ const Hero = () => {
         </div>
 
         {/* Impact Metric Strip: Animated Numbers Count-Up */}
-        <div className="stagger-6 grid grid-cols-3 gap-2 sm:gap-3.5 pt-3.5 sm:pt-4 border-t border-white/[0.08] max-w-lg mx-auto md:mx-0">
+        <div className="stagger-7 grid grid-cols-3 gap-2 sm:gap-3.5 pt-3.5 sm:pt-4 border-t border-white/[0.08] max-w-lg mx-auto md:mx-0">
           <div className="bento-card spotlight-card p-2 sm:p-3 text-center rounded-xl sm:rounded-2xl border-white/10 hover:border-brand-primary/30 transition-colors group">
             <div className="text-base sm:text-xl font-black text-white group-hover:text-brand-primary transition-colors font-mono">
               {metrics.years}+

@@ -39,9 +39,18 @@ const Navbar = ({ activeSection }) => {
 
   return (
     <header className="fixed top-3 sm:top-5 inset-x-0 z-50 px-3 sm:px-6 pointer-events-none">
+      {/* Mobile Backdrop Overlay - dims and blurs background elements so nothing bleeds through */}
+      <div 
+        className={`md:hidden fixed inset-0 bg-[#04060f]/80 backdrop-blur-md transition-all duration-300 pointer-events-auto ${
+          isMenuOpen ? 'opacity-100 z-40' : 'opacity-0 pointer-events-none -z-10'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+        aria-hidden="true"
+      />
+
       {/* Floating Pill Island Navbar */}
       <nav 
-        className={`relative overflow-hidden w-full max-w-[94%] md:max-w-max mx-auto rounded-full border transition-all duration-500 pointer-events-auto px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between md:justify-center gap-3 sm:gap-5 shadow-[0_12px_40px_-10px_rgba(0,0,0,0.85)] backdrop-blur-2xl ${
+        className={`relative overflow-hidden w-full max-w-[94%] md:max-w-max mx-auto rounded-full border transition-all duration-500 pointer-events-auto px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between md:justify-center gap-3 sm:gap-5 shadow-[0_12px_40px_-10px_rgba(0,0,0,0.85)] backdrop-blur-2xl z-50 ${
           isScrolled 
             ? 'bg-[#060813]/90 border-white/[0.14] shadow-cyan-950/20' 
             : 'bg-[#090d1a]/80 border-white/[0.08]'
@@ -113,11 +122,11 @@ const Navbar = ({ activeSection }) => {
 
       {/* Mobile Drawer (Floating Frosted Glass Card) */}
       <div 
-        className={`md:hidden fixed inset-x-3 top-[65px] rounded-3xl bg-[#060813]/95 backdrop-blur-3xl border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.9)] transition-all duration-300 pointer-events-auto p-5 flex flex-col justify-between max-h-[calc(100vh-85px)] overflow-y-auto ${
+        className={`md:hidden fixed inset-x-3 top-[62px] z-50 rounded-2xl sm:rounded-3xl bg-[#060813]/98 backdrop-blur-3xl border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.95)] transition-all duration-300 pointer-events-auto p-4 sm:p-5 flex flex-col max-h-[calc(100dvh-78px)] overflow-y-auto ${
           isMenuOpen ? 'opacity-100 scale-100 pointer-events-auto translate-y-0' : 'opacity-0 scale-95 pointer-events-none -translate-y-4'
         }`}
       >
-        <ul className="space-y-4 pt-4">
+        <ul className="space-y-1.5 shrink-0">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -125,7 +134,7 @@ const Navbar = ({ activeSection }) => {
                 <a
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center justify-between text-lg font-bold py-3 px-4 rounded-2xl border transition-all ${
+                  className={`flex items-center justify-between text-base font-semibold py-2.5 px-4 rounded-xl border transition-all ${
                     isActive 
                       ? 'text-brand-primary bg-brand-primary/10 border-brand-primary/30' 
                       : 'text-brand-muted hover:text-white border-transparent hover:bg-white/[0.04]'
@@ -139,18 +148,19 @@ const Navbar = ({ activeSection }) => {
           })}
         </ul>
 
-        <div className="space-y-3 pb-8">
+        {/* Bottom Actions - firmly anchored with divider, zero overlap */}
+        <div className="mt-4 pt-3.5 border-t border-white/10 space-y-2.5 shrink-0">
           <a
             href="https://drive.google.com/file/d/1272eqeIHiYgvucmMqpfHSaHFNp-uUnDG/view?usp=sharing"
             target="_blank" 
             rel="noopener noreferrer"
             onClick={() => setIsMenuOpen(false)}
-            className="w-full py-3.5 rounded-2xl btn-shimmer font-bold text-sm text-center flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-xl btn-shimmer font-bold text-sm text-center flex items-center justify-center gap-2"
           >
             <span>Download Resume</span>
             <i className="fas fa-download text-xs"></i>
           </a>
-          <p className="text-center text-xs text-brand-muted">
+          <p className="text-center text-[11px] text-brand-muted pb-1">
             &copy; {new Date().getFullYear()} Swatantra Raj Kumar Singh
           </p>
         </div>

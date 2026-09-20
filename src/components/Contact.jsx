@@ -17,7 +17,7 @@ const Contact = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/10 via-brand-accent/15 to-brand-secondary/10 blur-3xl -z-10 rounded-full"></div>
 
         {/* Centered Glowing Card */}
-        <div className="bento-card spotlight-card p-5 sm:p-12 md:p-16 border-white/[0.12] space-y-6 sm:space-y-8">
+        <div className="bento-card spotlight-card border-beam p-5 sm:p-12 md:p-16 border-white/[0.12] space-y-6 sm:space-y-8 shadow-[0_0_35px_rgba(0,240,255,0.08)]">
           {/* Header Status Tag */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-semibold text-brand-primary">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse"></span>
@@ -29,19 +29,19 @@ const Contact = () => {
               Let's Build Something <span className="metallic-text">Extraordinary</span>
             </h2>
             <p className="text-xs sm:text-base md:text-lg text-brand-muted max-w-xl mx-auto leading-relaxed font-normal px-1 sm:px-0">
-              Thanks for visiting my portfolio. If you'd like to discuss an opportunity, collaborate on a project, or simply connect, I'd love to hear from you.
+              Whether you're looking to hire for a <strong>full-time software engineering role</strong> or want to discuss a <strong>custom freelance product</strong>, I'd love to hear from you.
             </p>
           </div>
 
           {/* Quick Availability / Response Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-mono">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.15)]">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-mono">
+            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.15)]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
               <span>⚡ Fast Response: &lt; 24h</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary shadow-[0_0_12px_rgba(0,240,255,0.15)]">
-              <i className="fas fa-globe-asia text-[10px]"></i>
-              <span>📍 India • Open to Worldwide Remote / Hybrid</span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary shadow-[0_0_12px_rgba(0,240,255,0.15)]">
+              <i className="fas fa-globe-asia text-[10px] shrink-0"></i>
+              <span>India • <span className="hidden sm:inline">Open to </span>Worldwide Remote / Hybrid</span>
             </span>
           </div>
 

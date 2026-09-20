@@ -14,6 +14,19 @@ const EXPERIENCES = [
     skills: ["React.js", "JavaScript (ES6+)", "Admin Modules", "Tailwind CSS", "Agile / Scrum", "GenAI"]
   },
   {
+    role: "Freelance Software Developer",
+    company: "Client Solutions & Independent Projects",
+    tenure: "2024 - Present",
+    displayYear: "2024 — PRESENT",
+    current: false,
+    highlights: ["3 Client Apps Live", "Full-Stack Delivery"],
+    points: [
+      "Architected, built, and deployed 3 commercial web applications & PWAs for education and hospitality clients (Mono Mathematics, Tree House, Food Junction).",
+      "Managed end-to-end client delivery including responsive UI/UX, Firebase auth & databases, Three.js 3D visuals, and custom domain deployment with SEO."
+    ],
+    skills: ["React.js", "Vite", "PWA", "Firebase", "Three.js", "Tailwind CSS", "SEO"]
+  },
+  {
     role: "Web Development Intern",
     company: "JetaTech InfoServices Pvt. Ltd.",
     tenure: "Dec 2024 - Feb 2025",
@@ -64,7 +77,7 @@ const Experience = () => {
 
             {/* Experience Card */}
             <div className={`w-full md:w-[calc(50%-1.5rem)] bento-card spotlight-card p-4 sm:p-6 md:p-8 space-y-3.5 sm:space-y-4 hover:border-white/25 transition-all duration-300 text-left ${
-              exp.current ? 'border-brand-primary/25 shadow-[0_0_30px_rgba(0,240,255,0.08)]' : ''
+              exp.current ? 'border-beam shadow-[0_0_35px_rgba(0,240,255,0.12)]' : ''
             }`}>
               {/* Card Header with Role Title, Company & Tenure */}
               <div className="flex flex-wrap items-start justify-between gap-3 border-b border-white/[0.08] pb-3.5 sm:pb-4">

@@ -103,7 +103,7 @@ function App() {
       <Navbar activeSection={activeSection} />
 
       <main className="relative z-10">
-        <div className="reveal"><Hero /></div>
+        <Hero />
         <div className="reveal"><About /></div>
         <div className="reveal"><Skills /></div>
         <div className="reveal"><Experience /></div>
@@ -116,7 +116,7 @@ function App() {
       {/* Floating Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={`fixed bottom-5 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/15 bg-[#060813]/85 backdrop-blur-xl flex items-center justify-center text-brand-primary transition-all duration-500 z-50 shadow-2xl hover:border-brand-primary/50 hover:scale-110 active:scale-95 group ${
+        className={`fixed bottom-5 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/15 bg-[#060813]/85 backdrop-blur-xl flex items-center justify-center text-brand-primary transition-all duration-500 z-30 shadow-2xl hover:border-brand-primary/50 hover:scale-110 active:scale-95 group ${
           scrolled ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-8 pointer-events-none'
         }`}
         aria-label="Scroll Back to Top"

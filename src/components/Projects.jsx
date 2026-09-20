@@ -1,7 +1,16 @@
+import { useState } from 'react';
+
+const PROJECT_TABS = [
+  { id: "all", label: "All" },
+  { id: "personal", label: "Personal Projects" },
+  { id: "freelance", label: "Freelance Projects" }
+];
+
 const PROJECT_LIST = [
   {
     title: "ArogyamPath :  AI-Assisted Healthcare Platform",
     category: "ai",
+    type: "personal",
     status: "Live App",
     metric: "AI Symptom Analysis & Specialist Matching",
     desc: "Developed and deployed an AI-assisted patient-doctor healthcare platform that helps patients understand their symptoms, connect with the right specialist, and book appointments, while enabling doctors to efficiently manage appointments, availability, and their daily practice.",
@@ -11,8 +20,21 @@ const PROJECT_LIST = [
     github: "https://github.com/Swatantraraj19/Arogyampath"
   },
   {
+    title: "Mono Mathematics Classes – EdTech Platform & PWA",
+    category: "web",
+    type: "freelance",
+    status: "Live App",
+    metric: "Installable PWA • Offline Notes • Admin CMS",
+    desc: "Designed and deployed a full-featured EdTech platform and installable PWA for Mono Mathematics Classes (Class 6–12). Features chapter-wise recorded video lectures, IndexedDB offline notes, live classes integration (Zoom/Meet), and a role-based Institute Admin Panel for admissions and content management.",
+    tags: ["React.js", "Vite", "Tailwind CSS", "Firebase Auth", "Cloud Firestore", "PWA", "IndexedDB", "SEO"],
+    img: "/mono_mathematics.png",
+    demo: "https://monomathematics.com/",
+    github: "https://github.com/Swatantraraj19/Mono_Mathematics_Student.git"
+  },
+  {
     title: "Food Junction Bikram – Digital Menu & Ordering PWA",
     category: "web",
+    type: "freelance",
     status: "Live App",
     metric: "90+ Lighthouse Score",
     desc: "Developed a PWA-based digital menu & ordering system with WhatsApp integration for Food Junction Bikram. Built a responsive UI with Framer Motion animations and SEO optimization using JSON-LD. Achieved 90+ Lighthouse scores through performance optimization.",
@@ -22,8 +44,21 @@ const PROJECT_LIST = [
     github: "https://github.com/Swatantraraj19/Food_Junction_Bikram_Showcase.git"
   },
   {
+    title: "Tree House Hotel & Restaurant – Platform",
+    category: "web",
+    type: "freelance",
+    status: "Live App",
+    metric: "Three.js 3D Emblem • Sub-80KB Bundle • 1-Tap Booking",
+    desc: "Built a modern hospitality web platform for Tree House Hotel & Restaurant featuring an interactive 3D WebGL emblem with Three.js, a digital dining menu with Veg/Non-Veg filtering, and direct 1-tap room booking.",
+    tags: ["React 19", "Three.js", "Framer Motion", "Tailwind CSS", "Vite", "SEO", "JSON-LD"],
+    img: "/treehouse.png",
+    demo: "https://treehouse-gamma.vercel.app/",
+    github: "https://github.com/Swatantraraj19/Treehouse"
+  },
+  {
     title: "Hacker News Job Board",
     category: "web",
+    type: "personal",
     status: "Live App",
     metric: "~40% Performance Boost",
     desc: "Built a full-stack React app using the Hacker News API with Firebase Auth & Firestore. Implemented pagination, bookmarking, filtering, and protected routes. Improved performance by ~40% using Context API, modular architecture, and Snyk.",
@@ -35,6 +70,7 @@ const PROJECT_LIST = [
   {
     title: "Soil Organic Carbon Prediction System ",
     category: "ml",
+    type: "personal",
     status: "Live App",
     metric: "~15% R² Improvement",
     desc: "Built SOC prediction models using VNIR spectroscopy (ElasticNet, Support Vector Regression (SVR), Polynomial Regression) improving ~15% (R²), and developed a Streamlit web app with PCA-based reduction, spectral resampling, and real-time prediction with visualization.",
@@ -46,6 +82,7 @@ const PROJECT_LIST = [
   {
     title: "Internship Projects",
     category: "web",
+    type: "personal",
     status: "Completed",
     metric: "30% UI Responsiveness Boost",
     desc: "Developed three key projects during my internship: a responsive registration form, a dynamic calculator, and a weather app. Achieving 30% improvement in UI responsiveness and ensuring seamless cross-platform compatibility using HTML, CSS, and JavaScript.",
@@ -56,6 +93,12 @@ const PROJECT_LIST = [
 ];
 
 const Projects = () => {
+  const [activeTab, setActiveTab] = useState("all");
+
+  const filteredProjects = activeTab === "all"
+    ? PROJECT_LIST
+    : PROJECT_LIST.filter(project => project.type === activeTab);
+
   return (
     <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 md:py-28">
       <h2 className="section-title">Projects</h2>
@@ -64,10 +107,10 @@ const Projects = () => {
       </p>
 
       {/* Top Production Stats Strip */}
-      <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8 sm:mb-12 text-xs font-mono">
+      <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-6 sm:mb-8 text-xs font-mono">
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-brand-light shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse"></span>
-          <span className="font-semibold text-white">5 Production Projects</span>
+          <span className="font-semibold text-white">{PROJECT_LIST.length} Production Projects</span>
         </div>
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-brand-light shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -79,9 +122,43 @@ const Projects = () => {
         </div>
       </div>
 
+      {/* Interactive Project Type Filter Tabs (All / Personal / Freelance) */}
+      <div className="flex items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+        {PROJECT_TABS.map((tab) => {
+          const isActive = activeTab === tab.id;
+          const count = tab.id === "all"
+            ? PROJECT_LIST.length
+            : PROJECT_LIST.filter((p) => p.type === tab.id).length;
+
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 flex items-center gap-2 cursor-pointer active:scale-95 border ${
+                isActive
+                  ? "bg-white/15 text-white border-white/20 shadow-[0_0_15px_rgba(0,240,255,0.2)]"
+                  : "bg-white/[0.03] text-brand-muted hover:text-white hover:bg-white/[0.08] border-white/10"
+              }`}
+            >
+              <span>{tab.label}</span>
+              <span
+                className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full font-bold transition-colors ${
+                  isActive
+                    ? "bg-brand-primary/20 text-brand-primary"
+                    : "bg-white/10 text-brand-muted"
+                }`}
+              >
+                {count}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
       {/* Projects List Container */}
       <div className="space-y-8 sm:space-y-10">
-        {PROJECT_LIST.map((project) => {
+        {filteredProjects.map((project) => {
           const isFeatured = project.title.includes("ArogyamPath");
           // Extract a clean display URL for browser bar
           const displayUrl = project.demo 
@@ -137,11 +214,21 @@ const Projects = () => {
               {/* Content & Specs Container */}
               <div className="p-4 sm:p-7 lg:p-8 flex-1 flex flex-col justify-between text-left space-y-4 sm:space-y-5 relative z-10">
                 <div className="space-y-2.5 sm:space-y-3">
-                  {/* Meta Badge Bar: Live status indicator, Glowing Metric Pill & Featured Star */}
+                  {/* Meta Badge Bar: Live status indicator, Project Type, Metric Pill & Featured Star */}
                   <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
                     <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-emerald-400 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                       <span>{project.status}</span>
+                    </span>
+
+                    {/* Project Type Badge */}
+                    <span className={`inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${
+                      project.type === 'freelance'
+                        ? 'text-cyan-300 bg-cyan-500/10 border-cyan-500/30 shadow-[0_0_10px_rgba(0,240,255,0.15)]'
+                        : 'text-indigo-300 bg-indigo-500/10 border-indigo-500/30'
+                    }`}>
+                      <i className={`text-[9px] ${project.type === 'freelance' ? 'fas fa-briefcase' : 'fas fa-user-astronaut'}`}></i>
+                      <span>{project.type === 'freelance' ? 'Freelance / Client' : 'Personal'}</span>
                     </span>
 
                     {project.metric && (

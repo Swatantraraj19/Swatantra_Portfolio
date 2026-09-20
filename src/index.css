@@ -118,7 +118,28 @@
     opacity: 1;
   }
 
-  /* Traveling Border Beam Animation */
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes beamRotate {
+  from {
+    --beam-angle: 0deg;
+  }
+  to {
+    --beam-angle: 360deg;
+  }
+}
+
+@keyframes beamSweepFallback {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+  /* Linear-Style Traveling Border Beam Animation */
   .border-beam {
     position: relative;
   }
@@ -129,21 +150,22 @@
     inset: -1px;
     border-radius: inherit;
     padding: 1.5px;
-    background: linear-gradient(90deg, transparent 15%, #00f0ff 45%, #6366f1 75%, transparent 95%);
-    background-size: 250% 250%;
-    animation: beamSweep 4s linear infinite;
+    background: conic-gradient(from var(--beam-angle, 0deg), transparent 60%, #00f0ff 85%, #6366f1 95%, transparent 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-    opacity: 0.95;
+    opacity: 0.92;
     z-index: 3;
+    animation: beamRotate 5s linear infinite;
   }
 
-  @keyframes beamSweep {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @supports not (background: conic-gradient(from 0deg, red, blue)) {
+    .border-beam::after {
+      background: linear-gradient(90deg, transparent 15%, #00f0ff 45%, #6366f1 75%, transparent 95%);
+      background-size: 250% 250%;
+      animation: beamSweepFallback 4s linear infinite;
+    }
   }
 
   /* SaaS Browser Frame Simulation */
@@ -288,8 +310,8 @@
 @keyframes cascadeBlurUp {
   0% {
     opacity: 0;
-    transform: translateY(18px);
-    filter: blur(6px);
+    transform: translateY(22px);
+    filter: blur(4px);
   }
   100% {
     opacity: 1;
@@ -299,25 +321,28 @@
 }
 
 .stagger-1 {
-  animation: cascadeBlurUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
+  animation: cascadeBlurUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
 }
 .stagger-2 {
-  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s backwards;
+  animation: cascadeBlurUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 .stagger-3 {
-  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s backwards;
+  animation: cascadeBlurUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
 }
 .stagger-4 {
-  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.48s backwards;
+  animation: cascadeBlurUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 }
 .stagger-5 {
-  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.62s backwards;
+  animation: cascadeBlurUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
 }
 .stagger-6 {
-  animation: cascadeBlurUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s backwards;
+  animation: cascadeBlurUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+}
+.stagger-7 {
+  animation: cascadeBlurUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.95s both;
 }
 .stagger-card {
-  animation: cascadeBlurUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
+  animation: cascadeBlurUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
 }
 
 /* Autonomous Beam Shimmer for Mobile Progress Bars */
