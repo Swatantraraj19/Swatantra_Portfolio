@@ -84,7 +84,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-[calc(100vh-2rem)] max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-20 pb-8 sm:pt-24 sm:pb-14 flex flex-col md:flex-row items-center justify-center md:justify-between gap-3 sm:gap-8 lg:gap-12 overflow-hidden"
+      className="min-h-[calc(100vh-2rem)] max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-20 pb-8 sm:pt-24 sm:pb-14 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 sm:gap-8 lg:gap-12 overflow-hidden"
     >
       {/* Profile Image & Interactive Terminal Enclosure */}
       <div className="flex-initial md:flex-1 flex flex-col items-center order-1 md:order-2 shrink-0 stagger-1">
@@ -186,7 +186,7 @@ const Hero = () => {
       </div>
 
       {/* Copywriting & Conversion Elements */}
-      <div className="flex-initial md:flex-1 space-y-3 sm:space-y-5 text-center md:text-left order-2 md:order-1">
+      <div className="flex-initial md:flex-1 space-y-3.5 sm:space-y-5 text-center md:text-left order-2 md:order-1">
         {/* Status Radar Badge: Hidden on mobile to keep hero clean & non-redundant */}
         <div className="stagger-1 hidden sm:inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[11px] sm:text-xs font-semibold backdrop-blur-xl shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-transform duration-300 hover:scale-105">
           <span className="radar-beacon"></span>
