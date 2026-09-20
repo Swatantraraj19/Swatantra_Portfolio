@@ -89,7 +89,7 @@ const Hero = () => {
       {/* Profile Image & Interactive Terminal Enclosure */}
       <div className="flex-initial md:flex-1 flex flex-col items-center order-1 md:order-2 shrink-0 stagger-1">
         {/* Interactive Mode Pill Switcher */}
-        <div className="flex items-center justify-center gap-1 p-1 mb-3 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl shadow-lg">
+        <div className="-mt-2 sm:-mt-2 flex items-center justify-center gap-1 p-1 mb-3 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl shadow-lg">
           <button
             type="button"
             onClick={() => setViewMode('profile')}
