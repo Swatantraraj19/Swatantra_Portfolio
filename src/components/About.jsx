@@ -6,7 +6,7 @@ const About = () => {
   const handleCopyConfig = () => {
     const code = `const softwareEngineer = {
   name: "Swatantra Raj Kumar Singh",
-  experience: "1.7+ Years",
+  experience: "1.8+ Years",
   status: "Building Scalable & High-Impact Products",
   mindset: ["Clean Code", "Modern Architecture", "User-Focused"]
 };`;
@@ -42,7 +42,7 @@ const About = () => {
 
             <p className="text-xs sm:text-base text-brand-light/90 leading-relaxed font-normal">
               I'm a <strong>Software Developer</strong> with{" "}
-              <strong>1.7 years of experience</strong> building modern web
+              <strong>1.8 years of experience</strong> building modern web
               applications and digital products. I enjoy transforming ideas into
               scalable, user-focused solutions while writing clean, maintainable,
               and efficient code.
@@ -77,7 +77,7 @@ const About = () => {
             <div className="space-y-1 font-mono">
               <p><span className="text-purple-400">const</span> <span className="text-yellow-300">softwareEngineer</span> = &#123;</p>
               <p className="pl-3 sm:pl-4"><span className="text-brand-primary">name</span>: <span className="text-emerald-400">"Swatantra Raj Kumar Singh"</span>,</p>
-              <p className="pl-3 sm:pl-4"><span className="text-brand-primary">experience</span>: <span className="text-amber-400">"1.7+ Years"</span>,</p>
+              <p className="pl-3 sm:pl-4"><span className="text-brand-primary">experience</span>: <span className="text-amber-400">"1.8+ Years"</span>,</p>
               <p className="pl-3 sm:pl-4"><span className="text-brand-primary">status</span>: <span className="text-emerald-400">"Building Scalable &amp; High-Impact Products"</span>,</p>
               <p className="pl-3 sm:pl-4"><span className="text-brand-primary">mindset</span>: [<span className="text-emerald-400">"Clean Code"</span>, <span className="text-emerald-400">"Modern Architecture"</span>, <span className="text-emerald-400">"User-Focused"</span>]</p>
               <p>&#125;;</p>

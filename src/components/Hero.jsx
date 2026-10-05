@@ -53,7 +53,7 @@ const Hero = () => {
       const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
 
       setMetrics({
-        years: (1.7 * ease).toFixed(1),
+        years: (1.8 * ease).toFixed(1),
         apps: Math.round(7 * ease),
         quality: Math.round(100 * ease)
       });
@@ -158,7 +158,7 @@ const Hero = () => {
                         <p className="text-emerald-400 font-semibold">$ swatantra --status</p>
                         <p className="text-brand-muted">&#123;</p>
                         <p className="pl-1.5 sm:pl-2"><span className="text-brand-primary">role</span>: <span className="text-amber-300">"Software Developer"</span>,</p>
-                        <p className="pl-1.5 sm:pl-2"><span className="text-brand-primary">exp</span>: <span className="text-amber-300">"1.7+ Years"</span>,</p>
+                        <p className="pl-1.5 sm:pl-2"><span className="text-brand-primary">exp</span>: <span className="text-amber-300">"1.8+ Years"</span>,</p>
                         <p className="pl-1.5 sm:pl-2"><span className="text-brand-primary">focus</span>: [<span className="text-cyan-300">"Web"</span>, <span className="text-purple-300">"AI"</span>],</p>
                         <p className="pl-1.5 sm:pl-2"><span className="text-brand-primary">status</span>: <span className="text-emerald-300">"Active"</span></p>
                         <p className="text-brand-muted">&#125;</p>
