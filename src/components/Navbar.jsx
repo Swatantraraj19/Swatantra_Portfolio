@@ -98,7 +98,7 @@ const Navbar = ({ activeSection }) => {
         {/* Right Action: Resume Button & Mobile Trigger */}
         <div className="flex items-center gap-2">
           <a
-            href="https://drive.google.com/file/d/1272eqeIHiYgvucmMqpfHSaHFNp-uUnDG/view?usp=sharing"
+            href="https://drive.google.com/file/d/1BRLk-d4U6kBwUrZfcAgqCkGXht6lf6Cq/view?usp=sharing"
             target="_blank" 
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-bold text-white bg-gradient-to-r from-brand-primary/15 to-brand-accent/15 border border-brand-primary/30 hover:border-brand-primary hover:bg-brand-primary hover:text-black transition-all duration-300 shadow-sm inline-flex items-center gap-1.5"
@@ -151,7 +151,7 @@ const Navbar = ({ activeSection }) => {
         {/* Bottom Actions - firmly anchored with divider, zero overlap */}
         <div className="mt-4 pt-3.5 border-t border-white/10 space-y-2.5 shrink-0">
           <a
-            href="https://drive.google.com/file/d/1272eqeIHiYgvucmMqpfHSaHFNp-uUnDG/view?usp=sharing"
+            href="https://drive.google.com/file/d/1BRLk-d4U6kBwUrZfcAgqCkGXht6lf6Cq/view?usp=sharing"
             target="_blank" 
             rel="noopener noreferrer"
             onClick={() => setIsMenuOpen(false)}
